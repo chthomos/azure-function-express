@@ -60,7 +60,8 @@ function writeHead(context, statusCode, statusMessage, headers) {
   if (typeof statusMessage === "object" && typeof headers === "undefined") {
     headers = statusMessage; // eslint-disable-line no-param-reassign
   }
-  if (this._headers) {
+  
+  if (this.getHeaders()) {
     // Slow-case: when progressive API and header fields are passed.
     if (headers) {
       const keys = Object.keys(headers);
@@ -72,7 +73,7 @@ function writeHead(context, statusCode, statusMessage, headers) {
       }
     }
     // only progressive api is used
-    headers = this._renderHeaders(); // eslint-disable-line no-param-reassign
+    headers = this.getHeaders(); // eslint-disable-line no-param-reassign
   }
 
   // 4. Sets everything
@@ -80,6 +81,12 @@ function writeHead(context, statusCode, statusMessage, headers) {
   // In order to uniformize node 6 behaviour with node 8 and 10,
   // we want to never have undefined headers, but instead empty object
   context.res.headers = headers || {};
+}
+
+function set(context, data, value) {
+  // 1. Write head
+  this.setHeader(data,value);
+  //context.res.headers = this.getHeaders();
 }
 
 /**
@@ -95,8 +102,8 @@ export default class OutgoingMessage extends NativeOutgoingMessage {
    */
   constructor(context) {
     super();
-    this._headers = null;
-    this._headerNames = {};
+    //this._headers = null;
+    //this._headerNames = {};
     this._removedHeader = {};
     this._hasBody = true;
 
@@ -104,5 +111,6 @@ export default class OutgoingMessage extends NativeOutgoingMessage {
     // See https://github.com/expressjs/express/blob/master/lib/middleware/init.js#L29
     this.writeHead = writeHead.bind(this, context);
     this.end = end.bind(this, context);
+    this.set = set.bind(this, context);
   }
 }

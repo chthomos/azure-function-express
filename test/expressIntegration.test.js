@@ -25,11 +25,11 @@ describe("express integration", () => {
         expect(context.res.status).toBe(200);
         expect(context.res.body).toBe('{"foo":"foo","bar":"bar"}');
         expect(context.res.headers).toEqual({
-          "X-Powered-By"    : "Express",
-          "Cache-Control"   : "max-age=600",
-          "Content-Type"    : "application/json; charset=utf-8",
-          "Content-Length"  : "25",
-          ETag              : 'W/"19-0CKEGOfZ5AYCM4LPaa4gzWL6olU"'
+          "x-powered-by"    : "Express",
+          "cache-control"   : "max-age=600",
+          "content-type"    : "application/json; charset=utf-8",
+          "content-length"  : 25,
+          etag              : 'W/"19-0CKEGOfZ5AYCM4LPaa4gzWL6olU"'
         });
 
         done();
@@ -62,9 +62,9 @@ describe("express integration", () => {
         expect(context.res.status).toBe(200);
         expect(context.res.body).toBe('{"foo":"foo","bar":"bar"}');
         expect(context.res.headers).toEqual({
-          "Content-Type"    : "application/json; charset=utf-8",
-          "Content-Length"  : "25",
-          ETag              : 'W/"19-0CKEGOfZ5AYCM4LPaa4gzWL6olU"'
+          "content-type"    : "application/json; charset=utf-8",
+          "content-length"  : 25,
+          etag              : 'W/"19-0CKEGOfZ5AYCM4LPaa4gzWL6olU"'
         });
 
         done();

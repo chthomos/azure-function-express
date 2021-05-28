@@ -1,3 +1,14 @@
+# fork of azure-function-express from Hapticmedia
+
+Tested and working with express 4.17.1 and node 14
+
+## Summary of changes
+
+- Fixed deprectation warning for req.\_headers (now uses getHeaders())
+- Fixed problem with unpipe 
+
+
+
 <a href="https://hapticmedia.fr/en/">
   <img align="right" alt="Supported by Hapticmedia" src="docs/media/hapticmedia-support.svg" title="Supported by Hapticmedia" height="60"/>
 </a>

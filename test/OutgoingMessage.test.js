@@ -35,8 +35,7 @@ describe("OutgoingMessage", () => {
     it("Should work with headers with previous headers", () => {
       const context = { res: {} };
       const res = new OutgoingMessage(context);
-      res._headers = { previous: "previous" };
-      res._renderHeaders = () => res._headers;
+      res.setHeader("previous","previous");
 
       res.writeHead(200, null, { foo: "bar" });
 
@@ -44,6 +43,7 @@ describe("OutgoingMessage", () => {
       expect(context.res.status).toBe(200);
       expect(context.res.headers).toEqual({ foo: "bar", previous: "previous" });
     });
+
 
     it("Should work with a status message", () => {
       const context = { res: {} };

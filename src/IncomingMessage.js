@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import EventEmitter from "events";
 
+const contentType = require("content-type");
 const NOOP = () => {};
 
 function removePortFromAddress(address) {
@@ -67,11 +68,15 @@ export default class IncomingMessage extends EventEmitter {
     this.url = this.originalUrl;
     this.headers = this.headers || {}; // Should always have a headers object
 
+    this.pipes = [];
     this._readableState = { pipesCount: 0 }; // To make unpipe happy
-    this.resume = NOOP;
+    this.resume = NOOP; 
     this.socket = { destroy: NOOP };
     this.connection = createConnectionObject(context);
 
     this.context = sanitizeContext(context); // Specific to Azure Function
+
+    this._maxListeners = 0;
+    this.unpipe = function() {};
   }
 }
