@@ -1,6 +1,6 @@
 # fork of azure-function-express from Hapticmedia
 
-Tested and working with express 4.17.1 and node 14
+Tested and working with express 4.17.1 and Node 14 (LTS) and Functions Runtime v3
 
 ## Summary of changes
 
@@ -23,9 +23,8 @@ Tested and working with express 4.17.1 and node 14
 > Allows Express usage with Azure Function
 
 [![npm version](https://img.shields.io/npm/v/azure-function-express.svg)](https://www.npmjs.com/package/azure-function-express)
-[![Node](https://img.shields.io/badge/node-v6-blue.svg)](https://github.com/Azure/azure-webjobs-sdk-script/issues/2036#issuecomment-336942961)
-![Node](https://img.shields.io/badge/node-v8-blue.svg)
-![Node](https://img.shields.io/badge/node-v10-blue.svg)
+![Node](https://img.shields.io/badge/node-v12-blue.svg)
+![Node](https://img.shields.io/badge/node-v14-blue.svg)
 [![Travis Status](https://img.shields.io/travis/yvele/azure-function-express/master.svg?label=travis)](https://travis-ci.org/yvele/azure-function-express)
 [![Coverage Status](https://img.shields.io/codecov/c/github/yvele/azure-function-express/master.svg)](https://codecov.io/github/yvele/azure-function-express)
 [![MIT licensed](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
@@ -115,11 +114,10 @@ app.get("/api/hello-world", (req, res) => {
 ## Runtime compatibility
 
 Supported Node version are:
- - Node 6.11.2 ([first node version supported by Azure Functions](https://github.com/Azure/azure-webjobs-sdk-script/issues/2036#issuecomment-336942961))
- - Node 8 (LTS)
- - Node 10
-
-Azure Functions runtime v1 and v2 beta are both supported.
+ - Node 12
+ - Node 14 (LTS)
+ 
+Azure Functions runtime v3 is supported.
 
 
 ## License
