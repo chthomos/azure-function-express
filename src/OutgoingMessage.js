@@ -60,7 +60,7 @@ function writeHead(context, statusCode, statusMessage, headers) {
   if (typeof statusMessage === "object" && typeof headers === "undefined") {
     headers = statusMessage; // eslint-disable-line no-param-reassign
   }
-  
+
   if (this.getHeaders()) {
     // Slow-case: when progressive API and header fields are passed.
     if (headers) {
@@ -85,8 +85,8 @@ function writeHead(context, statusCode, statusMessage, headers) {
 
 function set(context, data, value) {
   // 1. Write head
-  this.setHeader(data,value);
-  //context.res.headers = this.getHeaders();
+  this.setHeader(data, value);
+  // context.res.headers = this.getHeaders();
 }
 
 /**
@@ -102,8 +102,8 @@ export default class OutgoingMessage extends NativeOutgoingMessage {
    */
   constructor(context) {
     super();
-    //this._headers = null;
-    //this._headerNames = {};
+    // this._headers = null;
+    // this._headerNames = {};
     this._removedHeader = {};
     this._hasBody = true;
 
