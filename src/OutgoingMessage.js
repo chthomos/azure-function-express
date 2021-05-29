@@ -86,6 +86,7 @@ function writeHead(context, statusCode, statusMessage, headers) {
 function set(context, data, value) {
   // 1. Write head
   this.setHeader(data, value);
+  return this;
   // context.res.headers = this.getHeaders();
 }
 
