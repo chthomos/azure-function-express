@@ -1,6 +1,6 @@
 {
   "name": "@chthomos/azure-function-express",
-  "version": "2.0.6",
+  "version": "2.0.8",
   "sideEffects": false,
   "description": "Allows Express usage with Azure Function - for Node 14 ",
   "keywords": [
@@ -24,15 +24,16 @@
   ],
   "main": "lib/index.js",
   "author": {
-    "name": "Merlicco Yves",
-    "email": "merlicco@gmail.com"
+    "name": "Harry Thomos (original Merlicco Yves)",
+    "email": "chthomos@gmail.com (original merlicco@gmail.com)"
   },
   "contributors": [
+    "Harry Thomos <chthomos@gmail.com>",
     "Yves Merlicco <merlicco@gmail.com>"
   ],
   "scripts": {
     "bootstrap": "npm install",
-    "build": "rm -rf lib && babel src --out-dir lib",
+    "build": "babel src --out-dir lib",
     "clean": "rm -rf lib coverage node_modules",
     "clean:build": "rm -rf lib",
     "clean:npm": "rm -rf node_modules",
